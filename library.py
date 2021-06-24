@@ -108,9 +108,9 @@ class ImageProcessing:
     def sharpen(self,iteration = 1):
         for i in range(iteration):
             self.customFilter(kernel=[
-                [0,-.5,0],
-                [-.5,3,-.5],
-                [0,-.5,0]
+                [0,-0.5,0],
+                [-0.5,3,-0.5],
+                [0,-0.5,0]
             ])
     
     def blur(self,iteration = 1):
@@ -202,16 +202,3 @@ class ImageProcessing:
             return max
         else:
             return value
-        
-if __name__ == "__main__":
-    image = ImageProcessing("C:/Users/OMer/Documents/3scu8q1.jpg")
-    
-    image.show(delay=1000)
-    image.GausianBlur(10)
-    image.show(delay=1000)
-    image.BlackAndWhite(COLOR.BLUE)
-    image.show(delay=1000)
-    image.pixelette(10)
-    image.show(delay=1000)
-    
-    image.saveResult()
