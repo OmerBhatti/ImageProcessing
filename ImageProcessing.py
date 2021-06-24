@@ -190,15 +190,16 @@ class ImageProcessing:
                 diff = (first[i][j][0]-second[i][j][0],first[i][j][1]-second[i][j][1],first[i][j][2]-second[i][j][2])
                 self.source[i][j] = diff
 
-    def saveResult(self,path = "./final.jpg"):
+    def saveResult(self,path = "./images/final.jpg"):
         """Saves The image in source at given path"""
         cv.imwrite(path,self.source)
     
-    def __tighten(self,value):
-        if(value<0):
-            return 0
-        elif(value>255):
-            return 255
+    def __tighten(self,value,min = 0,max = 255):
+        """Bound a value between minimum and maximum"""
+        if(value<min):
+            return min
+        elif(value>max):
+            return max
         else:
             return value
         
